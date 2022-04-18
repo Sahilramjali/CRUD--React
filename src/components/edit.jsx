@@ -17,7 +17,7 @@ const EditUse=()=>{
     return () => {
       loaduserData();
     };
-  });
+  },[]);
   //function that fetch data from the api
 const loaduserData=async()=>{
     const response=await fetchData(id);
@@ -25,7 +25,7 @@ const loaduserData=async()=>{
 }
 const onValueChange=(e)=>{
     setUser({...user, [e.target.name]:e.target.value});
-    //console.log(user)
+    
     console.log(e.target.value)
    
 }

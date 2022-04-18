@@ -26,9 +26,14 @@
       "id": 5
     },
     {
-      "name": "stick",
-      "email": "stick@gmail.com",
+      "name": "sticks",
+      "email": "sticks@gmail.com",
       "id": 6
+    },
+    {
+      "name": "pushpa",
+      "email": "pushpa@gmail.com",
+      "id": 7
     }
   ]
 }
