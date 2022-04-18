@@ -1,14 +1,22 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Home from './components/pages/Home';
-
+import NavBar from './components/navBar';
+import Main from './components/main'
+import AddUser from './components/adduser';
+import Users from './components/users'
+import Error from './components/error'
 function App() {
   return (
     <>
     <BrowserRouter>
+    <NavBar/>
     <Routes>
-      <Route path="/" element={<Home/>}/>
+      <Route  path="/" element={<Main/>}/>
+      <Route  path="/adduser" element={<AddUser/>}/>
+      <Route  path="/users" element={<Users/>}/>
+      <Route path="*" element={<Error/>}/>
     </Routes>
     </BrowserRouter>
+    
     </>
   );
 }
