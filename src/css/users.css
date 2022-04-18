@@ -1,8 +1,13 @@
 .table{
-    width: 90%;
-    margin: 50px 10px 0 50px;
+    width: 80%;
+   margin-top: 2%;
+   margin-right: 5%;
+   
 }
 .tablehead{
     background-color: rgb(32, 144, 219);
 
+}
+*{
+    box-sizing: border-box;
 }

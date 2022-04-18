@@ -1,7 +1,8 @@
 import { fetchData } from "../services/api";
 import { useEffect,useState } from "react";
 import '../css/users.css';
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Link } from "react-router-dom";
 const Users=()=>{
 const [users,setUsers]=useState([]);
 
@@ -16,17 +17,20 @@ const [users,setUsers]=useState([]);
         setUsers(response.data);
     }
     return(
+        <div className="maindiv">
         <Table className="table">
             <TableHead className="tablehead">
                 <TableRow>
                     <TableCell>Id</TableCell>
                     <TableCell>Name</TableCell>
                     <TableCell>Email</TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
-               {users.map((user)=>{
-                 return(  <TableRow>
+               {users.map((user,index)=>{
+//must  use key 
+                 return(  <TableRow key={index}>
                        <TableCell>
                            {user.id}
                        </TableCell>
@@ -36,11 +40,16 @@ const [users,setUsers]=useState([]);
                        <TableCell>
                            {user.email}
                        </TableCell>
+                       <TableCell>
+                       <Button variant="contained" color="success" component ={Link} to={`/edit/${user.id}`} >Edit</Button>
+                       <Button variant="contained" color="error" style={{margin:'2%'}} >Delete</Button>
+                       </TableCell>
                    </TableRow>);
                })}
             </TableBody>
 
         </Table>
+        </div>
     );
 }
 export default Users;
