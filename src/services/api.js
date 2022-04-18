@@ -9,3 +9,7 @@ export const InsertUser=async (user)=>{
 export const editUser =async(id,user)=>{
     return await axios.put(`http://localhost:3333/Students/${id}`,user);
 }
+export const deleteUser=async(id)=>{
+              
+    return await axios.delete(`http://localhost:3333/Students/${id}`);
+}

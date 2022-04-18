@@ -1,4 +1,4 @@
-import { fetchData } from "../services/api";
+import { fetchData,deleteUser } from "../services/api";
 import { useEffect,useState } from "react";
 import '../css/users.css';
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
@@ -15,6 +15,10 @@ const [users,setUsers]=useState([]);
     const getusers=async()=>{
         const response=await fetchData();
         setUsers(response.data);
+    }
+    const deleteData=async(id)=>{
+    await deleteUser(id);
+     getusers();
     }
     return(
         <div className="maindiv">
@@ -42,7 +46,7 @@ const [users,setUsers]=useState([]);
                        </TableCell>
                        <TableCell>
                        <Button variant="contained" color="success" component ={Link} to={`/edit/${user.id}`} >Edit</Button>
-                       <Button variant="contained" color="error" style={{margin:'2%'}} >Delete</Button>
+                       <Button variant="contained" color="error" style={{margin:'2%'}}  onClick={()=>deleteData(user.id)}>Delete</Button>
                        </TableCell>
                    </TableRow>);
                })}
